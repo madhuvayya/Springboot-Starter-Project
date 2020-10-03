@@ -27,4 +27,14 @@ public class TopicService {
 		return topics.add(topic);
 	}
 
+	public boolean updateTopic(int id, Topic topic) {
+		for(int i = 0;i<topics.size(); i++ ) {
+			if( topics.get(i).getId() == id) {
+				topics.add(i, topic);
+				return true;
+			}
+		}
+		return false;
+	}
+
 }

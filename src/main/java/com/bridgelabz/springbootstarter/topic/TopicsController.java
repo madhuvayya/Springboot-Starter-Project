@@ -20,7 +20,7 @@ public class TopicsController {
 		return topicService.getAllTopics();
 	}
 	
-	@RequestMapping("/topic/{id}")
+	@RequestMapping("/topics/{id}")
 	public Topic getTopic(@PathVariable("id") int id) {
 		Topic topic = topicService.getTopicById(id);
 		if(!topic.equals(null)) {
@@ -35,6 +35,14 @@ public class TopicsController {
 			return "Topic added";
 		}
 		return "Failed to add topic";
+	}
+	
+	@RequestMapping(value="/topics/{id}",method = RequestMethod.PUT)
+	public String updateTopic(@PathVariable int id,@RequestBody Topic topic) {
+		if(topicService.updateTopic(id,topic)) {
+			return "Topic updated";
+		}
+		return "Failed to update topic";
 	}
 
 }
