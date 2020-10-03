@@ -37,4 +37,14 @@ public class TopicService {
 		return false;
 	}
 
+	public boolean deleteTopic(int id) {
+		for(int i = 0;i<topics.size(); i++ ) {
+			if( topics.get(i).getId() == id) {
+				topics.remove(i);
+				return true;
+			}
+		}		
+		return false;
+	}
+
 }

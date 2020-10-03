@@ -45,4 +45,12 @@ public class TopicsController {
 		return "Failed to update topic";
 	}
 
+	
+	@RequestMapping(value = "/topics/{id}", method = RequestMethod.DELETE)
+	public String deleteTopic(@PathVariable int id) {
+		if(topicService.deleteTopic(id)) {
+			return "Topic Deleted";
+		}
+		return "Topic not deleted";
+	}
 }
